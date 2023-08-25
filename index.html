@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+  <title>Validator</title>
+  <script type="text/javascript" src="ContainerValidator.js"></script>
+  <script>
+    let validator = new ContainerValidator();
+    // validator.isValid("TEXU3070079"); // boolean true
+    // validator.isValid("TEXU3070070"); // boolean false
+
+    function validateForm() {
+      let x = document.getElementById("container").value;
+      //   console.log(x);
+      //   console.log(validator.isValid(x));
+      //   container = validator.validate(x);
+      //   console.log(container);
+
+      console.log(validator.generate("MAE", "U", 1, 100));
+      document.getElementById("showTemp").html = validator.generate(
+        "MAE",
+        "U",
+        1,
+        100
+      );
+    }
+  </script>
+</head>
+<body>
+  <h1>Welcome to container validator</h1>
+  <input id="container" type="text" name="fname" onchange="validateForm()" />
+  <div id="showTemp"></div>
+</body>
+</html>
