@@ -37,10 +37,15 @@ div {
   page-break-inside: auto;
   background-color: #f1f1f1;
   padding: 10px 2%;
-  background-image: url(../images/container.png);
+  background-image: url(../images/container1.png);
   background-repeat: no-repeat;
-  background-size: 28%;
-  background-position: 96% 40px;
+  background-size: 36%;
+  background-position: 96% 15px;
+}
+hr.divider {
+  border-top: 1px solid #d6d6d6;
+  width: 50%;
+  margin: 0;
 }
 .header {
   width: 75%;
@@ -58,6 +63,7 @@ div {
   overflow-y: auto;
 }
 .textbox1letter {
+  text-transform: uppercase;
   width: 237px;
   padding: 5px;
   font-size: 26px;
@@ -67,6 +73,7 @@ div {
   text-align: center;
 }
 .textbox3letter {
+  text-transform: uppercase;
   width: 37px;
   padding: 5px;
   font-size: 26px;

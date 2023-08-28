@@ -38,6 +38,9 @@
       );
     }
   </script>
+  <style>
+   
+  </style>
 </head>
 <body onload="generateList(0, 1000)">
   <div class= "header">
@@ -49,7 +52,7 @@
     <input id="container-check" class="textbox1letter" type="text" name="fname" placeholder="MAEU0000008" maxlength="11" onKeyUp="return checkContainer()"   />
     <span class="suggestion-message" id="suggestionMessage"></span>
     <div class="error-message" id="errorMessage"></div>
-    <hr>
+    <hr class="divider">
     <h2>Generate container numbers</h2>
         <input id="container-string1" class="textbox3letter" type="text" name="fname" value="M" maxlength="1"  />
         <input id="container-string2" class="textbox3letter" type="text" name="fname" value="A" maxlength="1"  />
@@ -59,7 +62,11 @@
         <button class="button button-group__button button--primary" id="container" value="Generate" name="fname" onclick="generateList()" >Generate</button>
         <div class="container-list" id="showTemp"></div>
         <hr>
-        <div style="color: #333; font-size: 11px; text-align: center;">For any queries: <a href="mailto:jafartke@gmail.com" style="color: #000;"> @jafartke</a></div>
+        <div style="color: #333; font-size: 11px; text-align: center;">
+          For any queries: <a href="mailto:jafartke@gmail.com" style="color: #000;"> @jafartke</a> 
+          | <span dir="auto"> Credits - Wikipedia : ISO 6346 <a style="color: #000;" target="_blank" href="http://en.wikipedia.org/wiki/ISO_6346" rel="nofollow">wikipedia.org</a>
+          </span>
+        </div>
       </div>
     
 </body>
