@@ -1,136 +1,9 @@
 <!DOCTYPE html>
 <head>
-  <title>Validator</title>
-
-
+  <title>Container Validator</title>
+  <link rel="shortcut icon" href="images/favicon.png">
   <script type="text/javascript" src="ContainerValidator.js"></script>
-  <style>
-    body {
-      background-color: #4e4e4e;
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-      margin: 0;
-    }
-    h1 {
-      color: #8297bb;
-      text-align: left;
-      margin: 0; 
-    }
-    h2 {
-      color: #4b4949;
-      font-weight: lighter;
-      font-size: 17px;
-    }
-    p{
-      color: #999;
-      text-align: left;
-      margin: 0;
-    }
-    input {
-      width: 15%;
-      padding: 6px 20px;
-      margin: 0;
-      box-sizing: border-box;
-    }
-    div {
-      width: 100%;
-      padding: 12px 0px;
-      margin: 8px 0;
-      box-sizing: border-box;
-    }
-    .page{
-      width: 75%;
-      margin: 0 auto;
-      page-break-inside: auto;
-      background-color: #f1f1f1;
-      padding: 10px 2%;
-      background-image: url(images/container.png);
-      background-repeat: no-repeat;
-      background-size: 28%;
-      background-position: 96% 40px;
-    }
-    .header {
-      width: 75%;
-      margin: 0 auto;
-      height: 80px;
-      background-color: #141414;
-      padding: 15px 2%;
-    }
-    .container-list{
-      width: 100%;
-      word-break: break-all;
-      color: #666;
-      min-height: 300px;
-    }
-    .textbox1letter{
-      width: 237px;
-      padding: 5px;
-      font-size: 26px;
-      border-radius: 4px;
-      border: 1px solid #cccccc;
-      color: #333131;
-      text-align: center;
-    }
-    .textbox3letter{
-      width: 37px;
-      padding: 5px;
-      font-size: 26px;
-      border-radius: 4px;
-      border: 1px solid #cccccc;
-      color: #333131;
-      text-align: center;
-    }
-    .button {
-      background-color: #ccc;
-      border: 1px solid transparent;
-      border-radius: 5px;
-      color: #141414;
-      cursor: pointer;
-      display: inline-block;
-      font-size: 16px;
-      line-height: 24px;
-      padding: 7px 19px 9px;
-      position: relative;
-      text-decoration: none;
-      transition: all .2s ease-in-out;
-      vertical-align: top
-  }
-
-  .button:focus {
-      outline: none
-  }
-
-  .button--disabled,.button:disabled {
-      cursor: not-allowed
-  }
-
-.button--loading {
-    cursor: wait;
-    padding-right: 47px
-}
-
-.button--loading:after {
-    animation: button--loading 1s infinite;
-    backface-visibility: hidden;
-    border: 2px solid hsla(0,0%,100%,.5);
-    border-radius: 50%;
-    border-top-color: #fff;
-    content: "";
-    height: 12px;
-    margin: -8px 0 0;
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    width: 12px
-}
-.error-message{
-  color: #ab5c5c;
-  font-size: 13px;
-  font-weight: 200;
-}
-.check-digit{ color: #000; }
-.suggestion-message{ color: #999; font-size: 13px; }
-
-  </style>
+  <link rel="stylesheet" href="css/style.css">
   <script>
     let validator = new ContainerValidator();
     function checkContainer(){
@@ -148,13 +21,11 @@
       } else {
         document.getElementById("suggestionMessage").innerHTML =  "" 
       }
-     
-
       //document.getElementById("suggestionMessage").innerHTML = validator.getOwnerCode().toString() +' '+ validator.getProductGroupCode().toString()+' '+ validator.getRegistrationDigit().toString()+' '+ validator.getCheckDigit().toString();
       //suggestionMessage = validator.getSuggestionMessage();
     }
 
-    function generateList() {
+    function generateList(start = 0, end = 10000) {
       //let x = document.getElementById("container").value;
       let getText1 = document.getElementById("container-string1").value;
       let getText2 = document.getElementById("container-string2").value;
@@ -162,13 +33,13 @@
       document.getElementById("showTemp").innerHTML = validator.generate(
         ''+getText1+getText2+getText3,
         "U",
-        0,
-        10000
+        start,
+        end
       );
     }
   </script>
 </head>
-<body onload="generateList()">
+<body onload="generateList(0, 1000)">
   <div class= "header">
     <h1>Container Validator</h1>
     <p>Cargo container validator ISO 6346 </p>
@@ -187,6 +58,9 @@
         <input id="container-string" class="textbox3letter" type="text" name="fname" value="U" maxlength="1" style="background-color: #e3e1e1;" readonly />
         <button class="button button-group__button button--primary" id="container" value="Generate" name="fname" onclick="generateList()" >Generate</button>
         <div class="container-list" id="showTemp"></div>
-    </div>
+        <hr>
+        <div style="color: #333; font-size: 11px; text-align: center;">For any queries: <a href="mailto:jafartke@gmail.com" style="color: #000;"> @jafartke</a></div>
+      </div>
+    
 </body>
 </html>
